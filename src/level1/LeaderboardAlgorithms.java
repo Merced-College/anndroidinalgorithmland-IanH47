@@ -17,8 +17,24 @@ public class LeaderboardAlgorithms {
      * - You may use Collections.sort + Comparator for the first version.
      * - Week 8 challenge/extra credit: replace with merge sort or quicksort.
      */
+	
     public static void sortByScoreDescending(ArrayList<ScoreEntry> list) {
-        // TODO
+    	
+    	for (int i = 1; i < list.size(); i++) {
+    	   int j = i;
+    	   // Insert numbers[i] into sorted part
+    	   // stopping once numbers[i] in correct position
+    	   while (j > 0 && list.get(j).getScore() < list.get(j-1).getScore()) {
+    	       
+    	      // Swap numbers[j] and numbers [j - 1]
+    	      ScoreEntry temp = list.get(j);
+    	      list.set(j, list.get(j-1));
+    	      list.set(j-1, temp);
+    	      j--;
+    	   }
+    	}
+    	
+    	// TODO
     }
 
     /**
@@ -29,6 +45,20 @@ public class LeaderboardAlgorithms {
      */
     public static void sortByUsernameAscending(ArrayList<ScoreEntry> list) {
         // TODO
+    	
+    	for (int i = 1; i < list.size(); i++) {
+     	   int j = i;
+     	   // Insert numbers[i] into sorted part
+     	   // stopping once numbers[i] in correct position
+     	   while (j > 0 && list.get(j).getUsername().compareTo(list.get(j-1).getUsername()) < 0) {
+     	       
+     	      // Swap numbers[j] and numbers [j - 1]
+     	      ScoreEntry temp = list.get(j);
+     	      list.set(j, list.get(j-1));
+     	      list.set(j-1, temp);
+     	      j--;
+     	   }
+     	}
     }
 
     /**
